@@ -1,0 +1,87 @@
+1. Autentikasi:
+Command: auth <username> <password>
+Deskripsi: Mengautentikasi pengguna dengan username dan password yang valid.
+Respon:
+Jika autentikasi berhasil, akan mengembalikan token sesi (tokenid).
+Jika autentikasi gagal, akan mengembalikan pesan kesalahan.
+
+2. Logout:
+Command: logout
+Deskripsi: Keluar dari sesi pengguna yang sedang aktif.
+Respon:
+Jika logout berhasil, akan mengembalikan pesan sukses.
+Jika pengguna belum login, akan mengembalikan pesan kesalahan.
+
+3. Registrasi:
+Command: register <nama> <negara> <username> <password>
+Deskripsi: Mendaftarkan pengguna baru dengan informasi pribadi dan akun yang valid.
+Respon:
+Jika registrasi berhasil, akan mengembalikan token sesi (tokenid).
+Jika username sudah digunakan, akan mengembalikan pesan kesalahan.
+
+4. Private Chat:
+Command: send <sessionid> <username_to> <message>
+Deskripsi: Mengirim pesan pribadi dari pengguna pengirim ke pengguna penerima.
+Respon:
+Jika pengiriman pesan berhasil, akan mengembalikan pesan sukses.
+Jika sesi tidak ditemukan atau pengguna tidak valid, akan mengembalikan pesan kesalahan.
+
+5. Inbox Private Chat:
+Command: inbox <sessionid>
+Deskripsi: Mengambil pesan-pesan pribadi yang diterima oleh pengguna.
+Respon:
+Jika pengambilan pesan berhasil, akan mengembalikan daftar pesan yang diterima oleh pengguna.
+
+6. Group Chat:
+Command: addgroup <sessionid> <groupname> <password>
+Deskripsi: Menambahkan grup baru dengan nama dan password tertentu.
+Respon:
+Jika penambahan grup berhasil, akan mengembalikan pesan sukses.
+Jika grup sudah ada, akan mengembalikan pesan kesalahan.
+
+Command: joingroup <sessionid> <groupname> <password>
+Deskripsi: Bergabung ke grup yang sudah ada dengan nama dan password tertentu.
+Respon:
+Jika bergabung ke grup berhasil, akan mengembalikan pesan sukses.
+Jika grup belum ada atau password salah, akan mengembalikan pesan kesalahan.
+
+Command: sendgroup <sessionid> <groupname> <message>
+Deskripsi: Mengirim pesan ke grup yang sudah bergabung.
+Respon:
+Jika pengiriman pesan berhasil, akan mengembalikan pesan sukses.
+Jika sesi tidak ditemukan, grup tidak valid, atau bukan anggota grup, akan mengembalikan pesan kesalahan.
+
+Command: inboxgroup <sessionid> <groupname>
+Deskripsi: Mengambil pesan-pesan yang diterima oleh grup.
+Respon:
+Jika pengambilan pesan berhasil, akan mengembalikan daftar pesan yang diterima oleh grup.
+
+7. Group Chat Antar Realm:
+Command: addrealm <realm_id> <realm_address> <realm_port> <src_address> <src_port>
+Deskripsi: Menambahkan realm baru dengan ID, alamat, dan port tertentu.
+Respon:
+Jika penambahan realm berhasil, akan mengembalikan pesan sukses.
+Jika realm sudah ada, akan mengembalikan pesan kesalahan.
+
+Command: sendgrouprealm <sessionid> <src_address> <src_port> <realm_id> <groupname> <message>
+Deskripsi: Mengirim pesan grup ke realm lain.
+Respon:
+Jika pengiriman pesan berhasil, akan mengembalikan pesan sukses.
+Jika sesi tidak ditemukan, realm tidak valid, grup tidak valid, atau bukan anggota grup, akan mengembalikan pesan kesalahan.
+
+Command: inboxgrouprealm <sessionid> <realm_id> <groupname>
+Deskripsi: Mengambil pesan-pesan yang diterima oleh grup di realm lain.
+Respon:
+Jika pengambilan pesan berhasil, akan mengembalikan daftar pesan yang diterima oleh grup di realm lain.
+
+8. Private Chat Antar Realm:
+Command: sendrealm <sessionid> <src_realm_addr> <src_realm_port> <realm_id> <username_from> <username_to> <message>
+Deskripsi: Mengirim pesan pribadi ke pengguna di realm lain.
+Respon:
+Jika pengiriman pesan berhasil, akan mengembalikan pesan sukses.
+Jika sesi tidak ditemukan, realm tidak valid, atau pengguna tidak valid, akan mengembalikan pesan kesalahan.
+
+Command: inboxrealm <sessionid> <realm_id>
+Deskripsi: Mengambil pesan-pesan pribadi yang diterima oleh pengguna di realm lain.
+Respon:
+Jika pengambilan pesan berhasil, akan mengembalikan daftar pesan yang diterima oleh pengguna di realm lain.
